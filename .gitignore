@@ -7,6 +7,8 @@ Credantials_local.ps1
 dist
 build
 .idea
+run_in_docker.ps1
+
 
 
 
