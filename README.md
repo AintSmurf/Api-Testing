@@ -33,7 +33,7 @@ The purpose of this framework is to provide a testing environment for WordPress 
 
 • If your using Local to run WordPress locally you will need to fill the port option.
 
-2.2Must do in WordPress:
+# 2.2 Must do in WordPress:
 1) Download the zip file from here if u run WordPress locally.
 
 2) Pull the sample_products.xml from the zip then Go back to WordPress: Tools -> WordPress -> install -> run Importer -> choose file -> provide the location of the XML file.
