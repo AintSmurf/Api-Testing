@@ -8,9 +8,3 @@ COPY ./pytest.ini /automation
 COPY ./ Credentials.sh /automation
 WORKDIR /automation
 RUN python setup.py install
-RUN source Credantials.sh
-<<<<<<< HEAD
-RUN Pytest --html=reports/report.html --self-contained-html
-=======
-RUN Pytest --html=report.html --self-contained-html
->>>>>>> origin/master
