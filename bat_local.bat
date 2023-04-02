@@ -1,0 +1,11 @@
+set WC_KEY=ck_df05ca71df09659bd13ed98e322e920c756df5f8
+set WC_SECRET=cs_1f30d439b27d4679e184960f07c0670ce73258e2
+set DB_USER=root
+set DB_PASSWORD=root
+set DB_SERVER=localhost
+set DB_NAME=local
+set SELPATH=C:\Users\monke\Desktop\API-FrontEnd-Testing-with-Backend-Automation\front\chromedriver.exe
+set ENVSEL=http://testsite.local
+set COUPON=TestCoupon
+set PORT=10005
+set Host=machine

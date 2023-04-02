@@ -40,8 +40,12 @@ class MyAccountSignedOut(MyAccountSignedOutLocator):
         self.sl.wait_and_input_text(self.REGISTER_USERNAME, username)
 
     def input_register_email(self, email):
-        logger.info("Typing password in the field.")
+        logger.info(f"Typing email:{email} in the field.")
         self.sl.wait_and_input_text(self.REGISTER_EMAIL, email)
+    def input_register_password(self, password):
+        logger.info("Typing password iin the field.")
+        self.sl.wait_and_input_text(self.REGISTER_PASSWORD, password)
+
 
     def click_register_button(self):
         logger.info("clicking the register button.")

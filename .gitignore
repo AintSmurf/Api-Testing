@@ -8,6 +8,9 @@ dist
 build
 .idea
 run_in_docker.ps1
+bat_local.bat
+results/
+dockercredentials.sh
 
 
 
