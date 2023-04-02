@@ -1,0 +1,10 @@
+export WC_KEY='ck_f7fe5c16ee7aa9f946709302b02b1e0a1bc9e9bc'
+export WC_SECRET='cs_cc076cf844ed22b42a2e30093c70d0abcd5e4a31'
+export DB_USER='root'
+export DB_PASSWORD='root'
+export DB_SERVER='host.docker.internal'
+export DB_NAME='wp_db'
+export SELPATH='C:\Users\monke\Desktop\API-FrontEnd-Testing-with-Backend-Automation\front\chromedriver.exe'
+export ENVSEL='http://192.168.1.19:8888/testite'
+export COUPON='TestCoupon'
+export PORT="8889"
