@@ -9,4 +9,6 @@ COPY ./pytest.ini /automation
 COPY ./dockercredentials.sh /automation
 
 WORKDIR /automation
+
+RUN python setup.py install
 RUN python setup.py install
