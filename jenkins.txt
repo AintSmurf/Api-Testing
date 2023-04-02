@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+            git 'https://github.com/AintSmurf/API-FrontEnd-Testing-with-Backend-Automation.git'
+            }
+        }
+        stage('Create virtual environment') {
+        steps {
+            bat '''
+               {path to you python.exe} -m venv myenv
+                call myenv\\Scripts\\activate.bat
+                python setup.py install
+            '''
+        }
+    }
+    stage('Test') {
+            steps {
+            bat '''
+            call myenv\\Scripts\\activate.bat
+            call {PATH to your credentials file}
+            pytest --html=reports/report.html --self-contained-html
+            '''
+            }
+        }
+    }
+}

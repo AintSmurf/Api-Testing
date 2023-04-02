@@ -10,7 +10,7 @@ build
 run_in_docker.ps1
 bat_local.bat
 results/
-docker_credentials.ps1
+docker_credentials.sh
 
 
 
