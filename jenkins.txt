@@ -10,17 +10,17 @@ pipeline {
         stage('Create virtual environment') {
         steps {
             bat '''
-               {path to you python.exe} -m venv myenv
+               {path to your python.exe} -m venv myenv
                 call myenv\\Scripts\\activate.bat
                 python setup.py install
             '''
         }
     }
     stage('Test') {
-            steps {
+            step {
             bat '''
             call myenv\\Scripts\\activate.bat
-            call {PATH to your credentials file}
+            call {path to your credentials file}
             pytest --html=reports/report.html --self-contained-html
             '''
             }
