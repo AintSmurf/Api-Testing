@@ -11,6 +11,7 @@ run_in_docker.ps1
 bat_local.bat
 results/
 docker_credentials.sh
+reports/
 
 
 
