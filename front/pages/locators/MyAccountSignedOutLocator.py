@@ -11,3 +11,4 @@ class MyAccountSignedOutLocator:
     REGISTER_EMAIL=(By.ID, 'reg_email')
     REGISTER_BUTTON =(By.NAME, 'register')
     REGISTER_ERROR = (By.XPATH, '//*[@id="wp--skip-link--target"]/div[3]/div/div[1]/ul')
+    REGISTER_PASSWORD = (By.ID, 'reg_password')

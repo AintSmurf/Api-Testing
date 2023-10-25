@@ -16,7 +16,10 @@ Table of Contents
 4. Docker Section
    1. Linux Section
    2. Windows Section
-5. Conclusion
+   
+5. Jenkins Section
+
+6. Conclusion
 
 # 1. Introduction
 The purpose of this framework is to provide a testing environment for WordPress developers to test website functionality, Unit testing, Visual testing ,end to end testing security testing etc .. , the framework uses pytest, SQL, Docker , and CI/CD pipeline to facilitate testing.
@@ -157,7 +160,34 @@ Now you can run the tests the way you want.
 
 • Step 7 & 8 are the same
 
-# 5.Conclusion
+# 5.Jenkins Section
+1.	open the Jenkins.txt.
+
+2.	got to the second stage “create virtual environment” replace the {path to your python.exe} with your actual path.
+
+2.1	in the windows search bar, type python.exe but don’t click on it in the menu. Instead, right-click on it, and select Open file location.
+
+3.	right click on the file “python.exe” copy as path.
+
+4.	paste it on notepad, txt file doesn’t matter then delete the quotes replace the backslash with double backslash (\\) then copy it to the Jenkins.txt.
+
+5.	go to the third stage “Test” replace the {path to your credentials file} with your actual path.
+
+6.	make sure you update the path to your chrome driver in the credentials file.
+
+# Run in Jenkins:
+
+1.	Go to your Jenkins URL.
+2.	Click on new item, name your project then select pipeline and click ok.
+
+3.	Open Jenkins.txt copy the code then go to the pipeline section and paste the code click save.
+
+4.	Click on build.
+
+5.	Open the folder where you ran the Jenkins file there will be results folder you will have test reports there.
+
+
+# 6.Conclusion
 In summary this framework provides a complete testing solution for
 WordPress developers it includes testing for both the front end and back
 end, as well as API testing.
