@@ -9,7 +9,7 @@ def init_driver(request):
         raise Exception(f"path must be set please execute the getpath.py."
                         "then copy the path you get in the terminal and set it in the addpath.ps1 ")
     else:
-        driver = webdriver.Chrome(path)
+        driver = webdriver.Chrome(executable_path=path)
     request.cls.driver = driver
     yield
     driver.quit()
