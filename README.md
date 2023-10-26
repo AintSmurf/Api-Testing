@@ -32,7 +32,7 @@ The purpose of this framework is to provide a testing environment for WordPress 
 
 • You must install WooCommerce in your WordPress through the plugins.
 
-• Check your browser version for the web driver. (Version 107 included in the project)
+• Check your browser version for the web driver. (Version 118 included in the project)
 
 • If your using Local to run WordPress locally you will need to fill the port option.
 
