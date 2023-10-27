@@ -1,0 +1,4 @@
+run allure reports
+
+1. pytest --alluredir="./reports"
+2.allure serve "./reports"

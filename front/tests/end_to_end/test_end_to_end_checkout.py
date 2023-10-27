@@ -32,6 +32,7 @@ class TestEndToEndGuestUser:
         #go to cart and verify
         product_names = cart_page.get_all_products()
         assert len(product_names) == 1, f"Expected single item in cart but found {len(product_names)}"
+        import pdb;pdb.set_trace()
 
         #apply free coupon
         cart_page.apply_discount("TestCoupon")

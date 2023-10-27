@@ -2,7 +2,7 @@ import pytest
 from front.pages.MyAccountSignedOut import MyAccountSignedOut
 from front.pages.MyAccountSignedIn import MyAccountSignedIn
 from backend.src.dao.customers_dao import CustomersDAO
-from backend.src.utilities.genericUtilities import generate_random_email_and_password
+from backend.src.utilities.genericUtilities import generate_random_email_and_password, generate_random_username
 
 @pytest.mark.usefixtures("init_driver")
 class TestLoginError:

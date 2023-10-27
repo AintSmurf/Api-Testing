@@ -5,6 +5,7 @@ from backend.src.utilities.requestsUtility import RequestsUtility
 @pytest.mark.customers
 @pytest.mark.tcidc3
 def test_get_all_customers():
+    #objectcs then make the response
     req_helper = RequestsUtility()
     rs_api = req_helper.get(endpoint='customers')
 

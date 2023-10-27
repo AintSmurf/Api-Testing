@@ -8,6 +8,7 @@ from backend.src.utilities.requestsUtility import RequestsUtility
 @pytest.mark.customers
 @pytest.mark.tcidc1
 def test_create_customer_only_email_password():
+    #Objects
     rand_info = generate_random_email_and_password()
     email = rand_info.get('email')
     paswword = rand_info.get('password')
