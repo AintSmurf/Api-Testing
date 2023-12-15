@@ -22,9 +22,7 @@ class TestEndToEndGuestUser:
         cs = CustomersDAO()
 
         #go to home page
-
         my_homepage.go_to_my_homepage()
-
         #add 1 item to cart
         my_homepage.add_item_to_cart()
         my_homepage.click_on_cart_button()
