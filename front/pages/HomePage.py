@@ -18,11 +18,11 @@ class HomePage(HomePageLocator):
         self.driver.get(my_account_url)
 
     def add_item_to_cart(self):
-        self.sl.wait_and_click(self.ADD_TO_CART_BUTTON)
+        self.sl.wait_until_element_is_clickble(self.ADD_TO_CART_BUTTON,10)
 
     def click_on_cart_button(self):
-        sleep(2)
         self.sl.wait_and_click(self.CART_BUTTON)
+
 
 
 
