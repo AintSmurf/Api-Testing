@@ -19,7 +19,7 @@ class CheckoutPage(CheckoutLoocators):
         self.sl.wait_and_input_text(self.PHONE_FIELD, phone)
         self.sl.wait_and_input_text(self.EMAIL_ADDRESS_FIELD, email_address)
     def click_on_the_place_order_btn(self):
-        self.sl.wait_and_click(self.PLACE_ORDER_BUTTON)
+        self.sl.wait_until_element_is_clickble(self.PLACE_ORDER_BUTTON)
 
     def getID(self):
         return self.sl.wait_and_get_element_Text(self.ORDER_ID)

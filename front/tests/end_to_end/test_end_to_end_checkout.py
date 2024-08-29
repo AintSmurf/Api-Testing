@@ -30,15 +30,14 @@ class TestEndToEndGuestUser:
         #go to cart and verify
         product_names = cart_page.get_all_products()
         assert len(product_names) == 1, f"Expected single item in cart but found {len(product_names)}"
-        import pdb;pdb.set_trace()
 
         #apply free coupon
         cart_page.apply_discount("TestCoupon")
-        cart_page.click_coupon_btn()
-        text = cart_page.verify_cuppon()
+        cart_page.click_coupon_btn() 
+        text = cart_page.verify_cuppon()   
         assert text == "Coupon code applied successfully.", f"Expected text is 'Coupon code applied successfully'" \
                                                            f"but we got instead{text}"
-
+        
         #click on checkout
         cart_page.click_on_checkout_button()
 
@@ -49,6 +48,7 @@ class TestEndToEndGuestUser:
 
         #click on place order and verify statically
         checkout_page.click_on_the_place_order_btn()
+        import pdb;pdb.set_trace()
         id = checkout_page.getID()
         message = "Thank you. Your order has been received."
         text = checkout_page.verify_order_received()

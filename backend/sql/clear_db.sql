@@ -1,0 +1,1 @@
+DELETE FROM local.wp_posts where post_type='shop_coupon' and post_title='test_coupon'

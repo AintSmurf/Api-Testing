@@ -1,6 +1,7 @@
 from front.seleniumExtended import SeleniumExtended
 from front.helpers.config_helpers import get_base_url
 from front.pages.locators.CartPageLocators import CartPageLocators
+import time
 
 
 class CartPage(CartPageLocators):
@@ -22,13 +23,13 @@ class CartPage(CartPageLocators):
         return product_names
 
     def click_on_checkout_button(self):
-        self.sl.wait_and_click(self.CHECKOUT_BUTTON, 20)
+        self.sl.wait_until_element_is_clickble(self.CHECKOUT_BUTTON, 20)
 
     def apply_discount(self, cuopon_code):
-        self.sl.wait_and_input_text(self.COUPON_TEXT_FIELD, cuopon_code)
+        self.sl.wait_and_input_text(self.COUPON_TEXT_FIELD, cuopon_code,30)
     def verify_cuppon(self):
         text = self.sl.wait_and_get_element_Text(self.COUPON_MESSAGE)
         return text
     def click_coupon_btn(self):
-        self.sl.wait_and_click(self.COUPON_BUTTON)
+        self.sl.wait_until_element_is_clickble(self.COUPON_BUTTON)
 

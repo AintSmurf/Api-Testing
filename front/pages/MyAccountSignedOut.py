@@ -28,7 +28,7 @@ class MyAccountSignedOut(MyAccountSignedOutLocator):
 
     def click_login_button(self):
         logger.info("clicking the Login button.")
-        self.sl.wait_and_click(self.LOGIN_BUTTON)
+        self.sl.wait_until_element_is_clickble(self.LOGIN_BUTTON)
 
     def wait_until_error_is_displayed(self, expected_error):
         logger.info("Showing the error displayed")
@@ -49,7 +49,7 @@ class MyAccountSignedOut(MyAccountSignedOutLocator):
 
     def click_register_button(self):
         logger.info("clicking the register button.")
-        self.sl.wait_and_click(self.REGISTER_BUTTON)
+        self.sl.wait_until_element_is_clickble(self.REGISTER_BUTTON)
 
     def wait_until_register_error_pops_up(self, expected_error):
         self.sl.wait_and_get_element_Text(self.REGISTER_ERROR, expected_error)

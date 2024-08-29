@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="Ecommerce Site Testing",
-    version="2.9",
+    version="3.0",
     description="WordPress Testing",
     packages=find_packages(),
     install_requires=[
