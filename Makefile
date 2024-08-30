@@ -41,7 +41,6 @@ clean:
 	python3 reset_db.py
 	rm -rf build dist Ecommerce_Site_Testing.egg-info $(VENV_DIR)
 	
-
 create_venv:
 	python3 -m venv $(VENV_DIR)
 
