@@ -2,7 +2,7 @@ ifeq ($(OS), Windows_NT)
 
 VENV_DIR=venv
 
-all: install build run
+all: install build run clean
 
 run:
 	.\venv\Scripts\activate && pytest
@@ -26,7 +26,7 @@ else
 
 VENV_DIR=venv
 
-all: install build run
+all: install build run clean
 
 run:
 	. ./venv/bin/activate && python3 -m pytest
@@ -43,7 +43,7 @@ build:
 	. ./Credantials.sh
 
 clean:
-	python3 reset_db.py
+	. ./venv/bin/activate && python3 reset_db.py
 	rm -rf build dist Ecommerce_Site_Testing.egg-info $(VENV_DIR)
 	find . -iname "*.pyc" -delete
 

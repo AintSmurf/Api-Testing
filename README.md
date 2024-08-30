@@ -76,16 +76,16 @@ Set the following environment variables:
 ## 3. Testing Section
 ### 3.1 Backend Testing
 #### Use the following commands to run tests:
-* 'tcid' : Test case ID
-* 'tcidc': Test case ID for customers
-* 'tcidp': Test case ID for products
-* 'tcido': Test case ID for orders
+* `tcid` : Test case ID
+* `tcidc`: Test case ID for customers
+* `tcidp`: Test case ID for products
+* `tcido`: Test case ID for orders
 #### Example commands:
-* Run all customer tests: 'pytest -m customers'
-* Run all product tests: 'pytest -m products'
-* Run all order tests: 'pytest -m orders'
+* Run all customer tests: `pytest -m customers`
+* Run all product tests: `pytest -m products`
+* Run all order tests: `pytest -m orders`
 ### 3.2 Frontend Testing
-* 'tcids': Test case ID for Selenium
+* `tcids`: Test case ID for Selenium
 * For more tests and documentation, refer to the [WooCommerce REST API Documentation](https://woocommerce.com/document/api-documentation/).
 ### 4. Docker Setup
 ## 4.1 Linux Container
@@ -119,16 +119,16 @@ Set the following environment variables:
    call Credentials.bat  # For Batch
 ```
 ### 5. Jenkins Integration
-1) open 'jenkins.txt'
-2) Replace '{path to your python.exe}' with the actual path:
+1) open `jenkins.txt`
+2) Replace `{path to your python.exe}` with the actual path:
    * Right-click 'python.exe' in the Start menu -> Open file location -> Copy as path.
-   * Update the path in 'Jenkins.txt', replacing single backslashes with double backslashes (\\).
-3) Replace '{path to your credentials file}' with the actual path.
+   * Update the path in `Jenkins.txt`, replacing single backslashes with double backslashes (\\).
+3) Replace `{path to your credentials file}` with the actual path.
 ## Run in Jenkins
 1) Go to your Jenkins URL.
 2) Create a new item -> name it -> select Pipeline -> click OK.
-3) Copy the code from 'Jenkins.txt' into the pipeline section and save.
-4) Click "Build" to start the process.
+3) Copy the code from `Jenkins.txt` into the pipeline section and save.
+4) Click `Build` to start the process.
 5) Test reports will be saved in the results folder.
 
 ### 6. Conclusion
