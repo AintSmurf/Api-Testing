@@ -1,197 +1,135 @@
-# Welcome to E Commerce website Testing
-Table of Contents
-
-1. introduction
-
-2. Set Up The Framework
-    1. Important things
-    2. Must Do In WordPress
-    3. Set Up Credentials
-    4. Set Up Testing Environment
-    5. Set Up Selenium Path
-3. Testing Section
-   1. Backend Section
-   2. Fronntend Section
-
-4. Docker Section
-   1. Linux Section
-   2. Windows Section
-   
-5. Jenkins Section
-
-6. Conclusion
-
-# 1. Introduction
-The purpose of this framework is to provide a testing environment for WordPress developers to test website functionality, Unit testing, Visual testing ,end to end testing security testing etc .. , the framework uses pytest, SQL, Docker , and CI/CD pipeline to facilitate testing.
-# 2. Set Up The Framework:
-# 2.1 Important things:
-
-• The project supports only chrome.
-
-• The project supports only WordPress sites.
-
-• You must install WooCommerce in your WordPress through the plugins.
-
-• Check your browser version for the web driver. (Version 118 included in the project)
-
-• If your using Local to run WordPress locally you will need to fill the port option.
-
-# 2.2 Must do in WordPress:
-1) Download the zip file from here if u run WordPress locally.
-
-2) Pull the sample_products.xml from the zip then Go back to WordPress: Tools -> WordPress -> install -> run Importer -> choose file -> provide the location of the XML file.
-
-3) Settings -> reading -> click on A static page ->change homepage to shop 4) Settings -> general -> check Anyone can register.
-
-4) WooCommerce -> settings -> Accounts & Privacy -> “Guest checkout” check all, “Account Creation” check all but the last one.
-
-5) Must create coupon code: marketing -> coupon (coupon type percentage discount)
-# 2.3 set up the Credentials:
-• WC_KEY – WordPress public key
-
-• WC_SECRET – WordPress secret key
-
-*NOTE: im using MYSQL.
-
-• DB_USER – Database Login Name (default root)
-
-• DB_PASSWORD - Database Password (default root)
-
-• DB_SERVER – Database Host(default localhost, if you’re using VMware for DB you will need to provide the IP of the iso.)
-
-• DB_NAME – Database Table Name.(Schema)
-
-• SELPATH – Selenium Driver Path. (click here or you can set up manually)
-
-• ENVSEL – The URL of the site.
-
-• COUPON – the name of your coupon.
-
-• PORT = the port you’re using to run WordPress Database. (optional)
-
-# 2.4 Set up The Testing Environment:
-
-1. Create python virtual environment:
-
-1.1) pip install virtualenv
-
-1.2) py -m venv {Name for your virtual environment.}
-
-1.3) open IDE make the virtual environment as main virtual environment.
-
-*)PyCharm – file -> settings -> Project -> python interpreter -> -> add -> new environment -> click on Location -> paste you’re python.exe path
-1.4) activate your virtual environment.
-
-1.5) install/develop setup.py, command: python setup.py install.
-
-# 2.5 Set Up The Selenium Path:
-1) copy the chrome driver.exe to the “front” folder.
-
-1.1) execute the getpath.py.
-
-1.2) copy the path you got in the terminal to Credentials (SELPATH=” whatever path you have copied”). ( sh,ps1,bat)
-
-# 3.Testing Section:
-
-# 3.1 BackEnd Section:
-Commands:
-
-• tcid stands for – test case id.
-
-• tcidc stands for – test case id for customers.
-
-• tcidp stands for – test case id for products.
-
-• tcido stands for – test case id for orders.
-
-• customers – pytest -m customers. (Run all the costumer tests)
-
-• products – pytest -m products. (Run all the product tests.)
-
-• orders – pytest -m orders. (Run all the orders tests)
-
-# 3.2 Frontend Section:
-• tcids stands for – test case id for selenium
-
-*) if you would like to add more tests here the docs.
-
-*) https://woocommerce.github.io/woocommerce-rest-api-docs/#introduction
-
-# 4. Docker Section:
-
-# Must update the Credentials:
-
-1. DB_SERVER = “host.docker.internal”
-
-2. ENVSEL = internal IP Address/portnumber(which port your'e using to run WordPress locally , mamp default =8888, local default=10005)
-
-3. Go to WordPress -> settings -> general -> replace the URL with ipv4 instead of localhost so docker can interact with it.
-
-• Make sure you’re on the root folder (the folder where the docker file exists)
-or provide the path of your Docker file instead of the dot in the first step.
-
-I’m copying the Credentials manually you can skip step 3 and 4 just by adding to your Docker file “COPY ./ Credentials.sh /automation” without the quotes.
-
-• You can do a lot of more things with docker like mount, run test outside etc .. navigate to the docker official site.
-
-# 4.1 Linux Section (Container) - inside the container:
-1. docker build -t automation . (pay attention to the dot)
-
-2. docker run -it automation /bin/bash
-
-3. open new terminal (don’t close the first one)-> docker ps -> copy the name of the container
-
-4. run this command: docker cp Credentials.sh {the name you’ve copied}:/automation
-
-5. go back to the first terminal.
-
-6. Source Credentials.sh
-
-7. Pytest (without report)
-
-8. Pytest –html=report.html --self-contained-html (with report inside the container if you need to report outside the container you will need to mount the folder).
-
-Now you can run the tests the way you want.
-
-# 4.2 Windows Section (Container) - inside the container:
-• All the steps are the same but the second step.(without the add command if you’re using windows) /bin/bash replace it with /cmd.exe or /powershell.exe .
-
-• Step5: execute the ps1 or bat file.(powershell = . ./Credantials.ps1, bat= type the name of the file into the command line, or use “call Credantials.bat”)
-
-• Step 7 & 8 are the same
-
-# 5.Jenkins Section
-1.	open the Jenkins.txt.
-
-2.	got to the second stage “create virtual environment” replace the {path to your python.exe} with your actual path.
-
-2.1	in the windows search bar, type python.exe but don’t click on it in the menu. Instead, right-click on it, and select Open file location.
-
-3.	right click on the file “python.exe” copy as path.
-
-4.	paste it on notepad, txt file doesn’t matter then delete the quotes replace the backslash with double backslash (\\) then copy it to the Jenkins.txt.
-
-5.	go to the third stage “Test” replace the {path to your credentials file} with your actual path.
-
-6.	make sure you update the path to your chrome driver in the credentials file.
-
-# Run in Jenkins:
-
-1.	Go to your Jenkins URL.
-2.	Click on new item, name your project then select pipeline and click ok.
-
-3.	Open Jenkins.txt copy the code then go to the pipeline section and paste the code click save.
-
-4.	Click on build.
-
-5.	Open the folder where you ran the Jenkins file there will be results folder you will have test reports there.
-
-
-# 6.Conclusion
-In summary this framework provides a complete testing solution for
-WordPress developers it includes testing for both the front end and back
-end, as well as API testing.
-The framework can be set up quickly and easily and includes support for
-Docker and CI/CD pipelines.
-By following the provided instructions, developers can ensure their
-WordPress site is thoroughly tested before deployment.
+# E-Commerce Website Testing Framework
+
+## Table of Contents
+1. [Introduction](#1-introduction)
+2. [Set Up The Framework](#2-set-up-the-framework)
+   1. [Important Information](#21-important-information)
+   2. [WordPress Configuration](#22-wordpress-configuration)
+   3. [Set Up Credentials](#23-set-up-credentials)
+   4. [Testing Environment Setup](#24-testing-environment-setup)
+   5. [Makefile Automation](#25-makefile-automation)
+3. [Testing Section](#3-testing-section)
+   1. [Backend Testing](#31-backend-testing)
+   2. [Frontend Testing](#32-frontend-testing)
+4. [Docker Setup](#4-docker-setup)
+   1. [Linux Container](#41-linux-container)
+   2. [Windows Container](#42-windows-container)
+5. [Jenkins Integration](#5-jenkins-integration)
+6. [Conclusion](#6-conclusion)
+
+## 1. Introduction
+This framework is designed to provide a comprehensive testing environment for WordPress developers, enabling them to perform functional, unit, visual, end-to-end, and security testing on their websites. It leverages **pytest**, **SQL**, **Docker**, and **CI/CD pipelines** to streamline the testing process.
+
+## 2. Set Up The Framework
+
+### 2.1 Important Information
+- **Supported Browser**: Chrome (handled automatically by Selenium)
+- **Supported Platform**: WordPress sites
+- **Plugin Requirement**: WooCommerce must be installed on your WordPress site.
+- **Local WordPress Installation**: If using Local for WordPress, fill in the port option.
+
+### 2.2 WordPress Configuration
+1. Download the [sample_products.xml](https://wordpress.org/plugins/woocommerce/) if running WordPress locally.
+2. Import the XML file in WordPress: Tools -> Import -> WordPress -> Run Importer -> Choose File -> Upload.
+3. Go to Settings -> Reading -> Set "A static page" and select "Shop" as the homepage.
+4. Enable registration: Settings -> General -> Check "Anyone can register".
+5. Configure WooCommerce settings: WooCommerce -> Settings -> Accounts & Privacy -> Enable all options under "Guest checkout" and "Account Creation" (except the last one).
+
+### 2.3 Set Up Credentials
+Set the following environment variables:
+- `WC_KEY`: WordPress public key
+- `WC_SECRET`: WordPress secret key
+- `DB_USER`: Database login name (default: root)
+- `DB_PASSWORD`: Database password (default: root)
+- `DB_SERVER`: Database host (default: localhost; use IP if on VMware or any other server)
+- `DB_NAME`: Database schema name
+- `SITE_URL`: URL of the site
+- `PORT`: WordPress database port (optional)
+
+### 2.4 Testing Environment Setup
+1. Create a Python virtual environment:
+ ```bash
+   pip install virtualenv
+   python -m venv <env-name>
+```
+2. activate virtual environment
+ ```bash
+   source <env-name>/bin/activate  # for Linux/macOS
+   .\<env-name>\Scripts\activate  # for Windows
+```
+3. Install the project dependencies:
+ ```bash
+   python setup.py install
+```
+4. prepare the database:
+ ```bash
+   python db_seed.py
+```
+### 2.5 Makefile Automation
+ ```bash
+   make all
+```
+* Set up the Python environment
+* Install dependencies
+* Seed the database with 'db_seed.py'
+* Run all tests
+## 3. Testing Section
+### 3.1 Backend Testing
+#### Use the following commands to run tests:
+* `tcid` : Test case ID
+* `tcidc`: Test case ID for customers
+* `tcidp`: Test case ID for products
+* `tcido`: Test case ID for orders
+#### Example commands:
+* Run all customer tests: `pytest -m customers`
+* Run all product tests: `pytest -m products`
+* Run all order tests: `pytest -m orders`
+### 3.2 Frontend Testing
+* `tcids`: Test case ID for Selenium
+* For more tests and documentation, refer to the [WooCommerce REST API Documentation](https://woocommerce.com/document/api-documentation/).
+### 4. Docker Setup
+## 4.1 Linux Container
+1) Build the Docker image:
+ ```bash
+   docker build -t automation .
+```
+2) Run the Docker container:
+ ```bash
+   docker run -it automation /bin/bash
+```
+3) In a new terminal, copy the credentials file to the container:
+ ```bash
+   docker ps  # Get the container name
+   docker cp Credentials.sh <container-name>:/automation
+```
+4) Inside the container, source the credentials:
+ ```bash
+   source Credentials.sh
+```
+5) Run the tests:
+ ```bash
+   pytest  # Without report
+   pytest --html=report.html --self-contained-html  # With report
+```
+## 4.2 Windows Container
+* Follow the same steps as Linux but replace '/bin/bash' with '/cmd.exe' or '/powershell.exe'
+* For credentials, run:
+ ```bash
+   .\Credentials.ps1  # For PowerShell
+   call Credentials.bat  # For Batch
+```
+### 5. Jenkins Integration
+1) open `jenkins.txt`
+2) Replace `{path to your python.exe}` with the actual path:
+   * Right-click 'python.exe' in the Start menu -> Open file location -> Copy as path.
+   * Update the path in `Jenkins.txt`, replacing single backslashes with double backslashes (\\).
+3) Replace `{path to your credentials file}` with the actual path.
+## Run in Jenkins
+1) Go to your Jenkins URL.
+2) Create a new item -> name it -> select Pipeline -> click OK.
+3) Copy the code from `Jenkins.txt` into the pipeline section and save.
+4) Click `Build` to start the process.
+5) Test reports will be saved in the results folder.
+
+### 6. Conclusion
+This framework provides a robust testing solution for WordPress developers, covering both frontend and backend testing, as well as API testing. With support for Docker and CI/CD pipelines, it ensures that your WordPress site is thoroughly tested before deployme

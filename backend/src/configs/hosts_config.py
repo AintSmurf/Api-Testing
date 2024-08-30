@@ -1,25 +1,16 @@
 import os
 
 API_HOSTS = {
-    "test": str(os.environ.get("ENVSEL"))+'/wp-json/wc/v3/',
+    "test": str(os.environ.get("SITE_URL")) + "/wp-json/wc/v3/",
     "dev": "",
-    "prod": ""
+    "prod": "",
 }
 
 
-WOO_API_HOSTS = {
-    "test": str(os.environ.get("ENVSEL")),
-    "dev": "",
-    "prod": ""
-}
+WOO_API_HOSTS = {"test": str(os.environ.get("SITE_URL")), "dev": "", "prod": ""}
 
 
 DB_HOSTS = {
-    'machine':{
-        'test': os.environ.get('DB_SERVER')
-
-    },
-    'docker':{
-        'test': os.environ.get('DB_SERVER')
-    }
+    "machine": {"test": os.environ.get("DB_SERVER")},
+    "docker": {"test": os.environ.get("DB_SERVER")},
 }

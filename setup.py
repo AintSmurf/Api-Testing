@@ -15,6 +15,6 @@ setup(
         "selenium==4.14.0",
         "WooCommerce==3.0.0",
         "allure-pytest==2.13.2",
-        "beautifulsoup4==4.9.3"
-    ]
+        "cryptography==43.0.0",
+    ],
 )
