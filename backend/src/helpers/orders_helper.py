@@ -34,7 +34,7 @@ class OrdersHelpers:
     @staticmethod
     def verify_order_is_created(order_json, cs_id, exp_products):
         db_helper = OrdersDAO()
-
+        
         # verify response
         assert order_json, "Create order response is empty"
         assert order_json["customer_id"] == cs_id, (

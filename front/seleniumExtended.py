@@ -5,7 +5,7 @@ from time import sleep
 
 class SeleniumExtended:
 
-    DEFAULT_TIMEOUT = 10
+    DEFAULT_TIMEOUT = 60
 
     def __init__(self, driver):
         self.driver = driver

@@ -35,6 +35,8 @@ class DBUtility:
             return connection
 
     def execute_select(self, sql):
+        connection = self.create_connection()
+        DBUtility._connection =connection
         try:
             logger.info(f"Executing:{sql}")
             cur = DBUtility._connection.cursor(pymysql.cursors.DictCursor)

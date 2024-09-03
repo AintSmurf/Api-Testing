@@ -65,7 +65,7 @@ Set the following environment variables:
  ```bash
    python db_seed.py
 ```
-### 2.5 Makefile Automation
+5. Makefile Automation
  ```bash
    make all
 ```
