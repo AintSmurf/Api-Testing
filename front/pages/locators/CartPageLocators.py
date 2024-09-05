@@ -7,3 +7,4 @@ class CartPageLocators():
     COUPON_TEXT_FIELD =(By.ID, 'coupon_code')
     COUPON_MESSAGE = (By.CSS_SELECTOR,'div.woocommerce-message')
     COUPON_BUTTON = (By.NAME, 'apply_coupon')
+    PRICE = (By.XPATH,'//td[@data-title="Total"]//strong/span[@class="woocommerce-Price-amount amount"]/bdi')

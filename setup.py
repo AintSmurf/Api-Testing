@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="Ecommerce Site Testing",
-    version="2.9",
+    version="3.0",
     description="WordPress Testing",
     packages=find_packages(),
     install_requires=[
@@ -15,6 +15,6 @@ setup(
         "selenium==4.14.0",
         "WooCommerce==3.0.0",
         "allure-pytest==2.13.2",
-        "beautifulsoup4==4.9.3"
-    ]
+        "cryptography==43.0.0",
+    ],
 )

@@ -5,9 +5,10 @@ from front.helpers.config_helpers import get_base_url
 import logging as Logger
 from time import sleep
 
+
 class HomePage(HomePageLocator):
 
-    def __init__(self,driver):
+    def __init__(self, driver):
         self.driver = driver
         self.sl = SeleniumExtended(self.driver)
 
@@ -18,11 +19,9 @@ class HomePage(HomePageLocator):
         self.driver.get(my_account_url)
 
     def add_item_to_cart(self):
-        self.sl.wait_and_click(self.ADD_TO_CART_BUTTON)
+        self.sl.wait_until_element_is_clickble(self.ADD_TO_CART_BUTTON, 10)
+        Logger.info("added item to the cart")
 
     def click_on_cart_button(self):
-        sleep(2)
-        self.sl.wait_and_click(self.CART_BUTTON)
-
-
-
+        self.sl.wait_until_element_is_clickble(self.CART_BUTTON)
+        Logger.info("clicked on cart button")
