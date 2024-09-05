@@ -29,7 +29,7 @@ This framework is designed to provide a comprehensive testing environment for Wo
 - **Local WordPress Installation**: If using Local for WordPress, fill in the port option.
 
 ### 2.2 WordPress Configuration
-1. Download the [sample_products.xml](https://wordpress.org/plugins/woocommerce/) if running WordPress locally.
+1. Download the [sample_products.xml](https://downloads.wordpress.org/plugin/woocommerce.9.2.3.zip) if running WordPress locally.
 2. Import the XML file in WordPress: Tools -> Import -> WordPress -> Run Importer -> Choose File -> Upload.
 3. Go to Settings -> Reading -> Set "A static page" and select "Shop" as the homepage.
 4. Enable registration: Settings -> General -> Check "Anyone can register".

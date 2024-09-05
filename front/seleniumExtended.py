@@ -1,7 +1,8 @@
 from selenium.common import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from time import sleep
+import logging as Logger
+
 
 class SeleniumExtended:
 
@@ -9,10 +10,14 @@ class SeleniumExtended:
 
     def __init__(self, driver):
         self.driver = driver
-    
+
     def _wait_for_condition(
         self, locator, condition, timeout=DEFAULT_TIMEOUT, text=None
     ):
+        Logger.info(
+            f"Waiting with locator: {locator}, condition: {condition}, text: {text}, timeout: {timeout}"
+        )
+
         if text:
             return WebDriverWait(self.driver, timeout).until(condition(locator, text))
         return WebDriverWait(self.driver, timeout).until(condition(locator))
@@ -34,18 +39,22 @@ class SeleniumExtended:
     def wait_until_element_is_clickble(self, locator, timeout=DEFAULT_TIMEOUT):
         self._wait_for_condition(locator, EC.element_to_be_clickable, timeout).click()
 
-    def wait_and_get_elements(self, locator, timeout =None, err=None):
+    def wait_and_get_elements(self, locator, timeout=DEFAULT_TIMEOUT, err=None):
         err = (
             err
             if err
-            else f"unable to find elements located by '{locator}'"
-            f"after timeout of {timeout}"
+            else f"Unable to find elements located by '{locator}' after timeout of {timeout}"
         )
         try:
             el = self._wait_for_condition(
                 locator, EC.visibility_of_all_elements_located, timeout
             )
+            if el:
+                Logger.info(f"Found {len(el)} elements.")
+            else:
+                Logger.error("No elements found.")
         except TimeoutException:
+            Logger.error(err)
             raise TimeoutException(err)
         return el
 
@@ -57,10 +66,3 @@ class SeleniumExtended:
         except TimeoutException:
             raise TimeoutException()
         return elm.text
-
-
-
-
-
-
-
